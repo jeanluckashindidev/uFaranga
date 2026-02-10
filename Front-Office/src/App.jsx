@@ -30,6 +30,8 @@ import MultiCurrency from './pages/MultiCurrency';
 // Produits - Transferts & Paiements
 import Transfers from './pages/Transfers';
 import QRPayments from './pages/QRPayments';
+import MerchantPayments from './pages/MerchantPayments';
+import Bills from './pages/Bills';
 
 // Produits - Épargne & Crédit
 import Savings from './pages/Savings';
@@ -64,6 +66,8 @@ function App() {
             {/* Produits - Transferts & Paiements */}
             <Route path="/transferts" element={<Transfers />} />
             <Route path="/paiements-qr" element={<QRPayments />} />
+            <Route path="/paiements-marchands" element={<MerchantPayments />} />
+            <Route path="/factures" element={<Bills />} />
             
             {/* Produits - Épargne & Crédit */}
             <Route path="/epargne" element={<Savings />} />

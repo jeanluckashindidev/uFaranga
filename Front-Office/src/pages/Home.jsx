@@ -222,12 +222,46 @@ const Home = () => {
 
         {/* Story Container */}
         <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-12 px-4 md:px-0 hide-scrollbar items-center justify-start md:justify-center">
-          {features.map((feature, idx) => (
+          {[
+            {
+              title: "Envoyer de l'argent instantanément",
+              img: "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&w=800&q=80",
+              desc: "Transférez des fonds à vos amis, votre famille ou vos partenaires en quelques secondes, où qu'ils soient.",
+              highlight: "Gratuit entre amis"
+            },
+            {
+              title: "Payer toutes vos factures",
+              img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
+              desc: "Électricité, eau, internet, abonnements TV... Réglez tout depuis votre canapé en un clic.",
+              highlight: "Cashback 1%"
+            },
+            {
+              title: "Épargner pour vos rêves",
+              img: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80",
+              desc: "Créez des cagnottes automatiques et regardez votre argent grandir jour après jour.",
+              highlight: "Jusqu'à 5% d'intérêts"
+            },
+            {
+              title: "Cartes Virtuelles & Physiques",
+              img: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80",
+              desc: "Payez en ligne avec nos cartes virtuelles sécurisées ou commandez votre carte physique.",
+              highlight: "Contrôle total"
+            },
+            {
+              title: "Crédit & Avance sur salaire",
+              img: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=800&q=80",
+              desc: "Besoin d'un coup de pouce ? Obtenez une avance instantanée directement dans l'app.",
+              highlight: "Approbation instantanée"
+            }
+          ].map((feature, idx) => (
             <div key={idx} className="snap-center shrink-0 relative group cursor-pointer transition-transform duration-300 hover:scale-[1.02]">
               {/* Story Card */}
-              <GlassCard className="w-[300px] h-[520px] md:w-[360px] md:h-[600px] p-0 overflow-hidden flex flex-col justify-between border-white/10 bg-black/40 relative">
-                {/* Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-b ${feature.color.replace('text-', 'from-').replace('500', '900')} to-black opacity-40 group-hover:opacity-60 transition-opacity`}></div>
+              <GlassCard className="w-[300px] h-[520px] md:w-[360px] md:h-[600px] p-0 overflow-hidden flex flex-col justify-between border-white/10 bg-black relative">
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <img src={feature.img} alt={feature.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90"></div>
+                </div>
 
                 {/* Story Progress Bars (Visual) */}
                 <div className="absolute top-4 left-4 right-4 flex gap-1 z-20">
@@ -240,21 +274,18 @@ const Home = () => {
 
                 {/* Content Top */}
                 <div className="p-8 pt-16 relative z-10">
-                  <div className={`w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-6 text-white border border-white/10 shadow-lg`}>
-                    <feature.icon className="w-7 h-7" />
-                  </div>
-                  <h3 className="text-3xl font-anton uppercase mb-2 leading-none">{feature.title}</h3>
+                  <h3 className="text-3xl font-anton uppercase mb-2 leading-none drop-shadow-lg">{feature.title}</h3>
                 </div>
 
                 {/* Content Bottom */}
-                <div className="p-8 relative z-10 mt-auto bg-gradient-to-t from-black via-black/80 to-transparent pt-12">
-                  <p className="text-gray-300 text-lg leading-relaxed mb-6">{feature.desc}</p>
+                <div className="p-8 relative z-10 mt-auto pt-12">
+                  <p className="text-gray-300 text-lg leading-relaxed mb-6 font-medium drop-shadow-md">{feature.desc}</p>
                   {feature.highlight && (
-                    <div className="py-3 px-4 rounded-xl bg-white/10 border border-white/10 backdrop-blur-md text-sm font-medium text-white">
+                    <div className="inline-block py-2 px-4 rounded-xl bg-primary/80 border border-primary/50 backdrop-blur-md text-sm font-bold text-white mb-4">
                       {feature.highlight}
                     </div>
                   )}
-                  <button className="w-full mt-6 py-3 rounded-xl bg-white text-black font-bold text-sm uppercase tracking-wider hover:bg-gray-200 transition-colors">
+                  <button className="w-full mt-4 py-3 rounded-xl bg-white text-black font-bold text-sm uppercase tracking-wider hover:bg-gray-200 transition-colors shadow-lg">
                     En savoir plus
                   </button>
                 </div>
